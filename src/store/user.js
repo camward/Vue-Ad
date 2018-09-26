@@ -12,7 +12,9 @@ export default {
   },
   mutations: {
     setUser (state, payload) {
-      state.user = payload
+      if (payload && payload.id) {
+        state.user = payload
+      }
     }
   },
   actions: {
