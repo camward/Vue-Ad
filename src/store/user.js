@@ -15,6 +15,9 @@ export default {
       if (payload && payload.id) {
         state.user = payload
       }
+    },
+    logoutUser (state, payload) {
+      state.user = payload
     }
   },
   actions: {
@@ -49,7 +52,7 @@ export default {
     },
     logoutUser ({commit}) {
       fb.auth().signOut()
-      commit('setUser', null)
+      commit('logoutUser', null)
     }
   },
   getters: {
