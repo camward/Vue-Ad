@@ -15,7 +15,7 @@
             <v-spacer></v-spacer>
             <addEditAdModal :ad="ad" v-if="isOwner"></addEditAdModal>
             &ensp;
-            <v-btn class="success">Buy</v-btn>
+            <app-buy-modal :ad="ad"></app-buy-modal>
           </v-card-actions>
         </v-card>
         <div v-else class="text-xs-center">
