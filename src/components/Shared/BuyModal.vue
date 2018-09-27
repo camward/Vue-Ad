@@ -1,13 +1,12 @@
 <template>
   <v-dialog width="400px" v-model="modal">
-    <v-btn class="primary" flat slot="activator">Buy</v-btn>
-
+    <v-btn class="primary" flat slot="activator">Заказать</v-btn>
     <v-card>
       <v-container>
         <v-layout row>
           <v-flex xs12>
             <v-card-title>
-              <h1 class="text--primary">Do you wan't to buy it?</h1>
+              <h1 class="text--primary">Заказать товар</h1>
             </v-card-title>
           </v-flex>
         </v-layout>
@@ -15,18 +14,8 @@
         <v-layout row>
           <v-flex xs12>
             <v-card-text>
-              <v-text-field
-                name="name"
-                label="Your name"
-                type="text"
-                v-model="name"
-              ></v-text-field>
-              <v-text-field
-                name="phone"
-                label="Your phone"
-                type="text"
-                v-model="phone"
-              ></v-text-field>
+              <v-text-field name="name" label="Имя" type="text" v-model="name"></v-text-field>
+              <v-text-field name="phone" label="Телефон" type="text" v-model="phone"></v-text-field>
             </v-card-text>
           </v-flex>
         </v-layout>
@@ -35,22 +24,8 @@
           <v-flex xs12>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn
-                flat
-                @click="onCancel"
-                :disabled="localLoading"
-              >
-                Close
-              </v-btn>
-              <v-btn
-                class="success"
-                flat
-                @click="onSave"
-                :disabled="localLoading"
-                :loading="localLoading"
-              >
-                Buy it!
-              </v-btn>
+              <v-btn flat @click="onCancel" :disabled="localLoading">Отмена</v-btn>
+              <v-btn class="success" flat @click="onSave" :disabled="localLoading" :loading="localLoading">Заказать</v-btn>
             </v-card-actions>
           </v-flex>
         </v-layout>

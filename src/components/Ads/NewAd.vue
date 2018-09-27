@@ -2,37 +2,20 @@
   <v-container>
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
-        <h1 class="text--secondary mb-3">Create new ad</h1>
+        <h1 class="text--secondary mb-3">Создать объявление</h1>
         <v-form v-model="valid" ref="form" validation class="mb-3">
-          <v-text-field
-            name="title"
-            label="Ad title"
-            type="text"
-            v-model="title"
-            required
-            :rules="[v => !!v || 'Title is required']"
-          ></v-text-field>
-          <v-textarea
-            name="description"
-            label="Ad description"
-            type="text"
-            v-model="description"
-            :rules="[v => !!v || 'Description is required']"
-          ></v-textarea>
+          <v-text-field name="title" label="Заголовок" type="text" v-model="title"
+                        required :rules="[v => !!v || 'Поле обязательно для заполнения']"></v-text-field>
+          <v-textarea name="description" label="Описание" type="text" v-model="description"
+                      :rules="[v => !!v || 'Описание обязательно для заполнения']"></v-textarea>
         </v-form>
         <v-layout row class="mb-3">
           <v-flex xs12>
             <v-btn class="warning" @click="triggerUpload">
-              Upload
+              Загрузить изображение
               <v-icon right dark>cloud_upload</v-icon>
             </v-btn>
-            <input
-              ref="fileInput"
-              type="file"
-              style="display: none;"
-              accept="image/*"
-              @change="onFileChange"
-            >
+            <input ref="fileInput" type="file" style="display: none;" accept="image/*" @change="onFileChange">
           </v-flex>
         </v-layout>
         <v-layout row>
@@ -42,24 +25,13 @@
         </v-layout>
         <v-layout row>
           <v-flex xs12>
-            <v-switch
-              label="Add to promo?"
-              v-model="promo"
-              color="primary"
-            ></v-switch>
+            <v-switch label="Добавить в слайдер" v-model="promo" color="primary"></v-switch>
           </v-flex>
         </v-layout>
         <v-layout row>
           <v-flex xs12>
             <v-spacer></v-spacer>
-            <v-btn
-              :loading="loading"
-              :disabled="!valid || !image || loading"
-              class="success"
-              @click="createAd"
-            >
-              Create ad
-            </v-btn>
+            <v-btn :loading="loading" :disabled="!valid || !image || loading" class="success" @click="createAd">Создать</v-btn>
           </v-flex>
         </v-layout>
       </v-flex>

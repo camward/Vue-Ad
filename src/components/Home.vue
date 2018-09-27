@@ -4,11 +4,7 @@
       <v-layout row>
         <v-flex xs12>
           <v-carousel>
-            <v-carousel-item
-              v-for="ad in promoAds"
-              :key="ad.id"
-              :src="ad.imageSrc"
-            >
+            <v-carousel-item v-for="ad in promoAds" :key="ad.id" :src="ad.imageSrc">
               <div class="car-link">
                 <v-btn class="error" :to="'/ad/' + ad.id">{{ ad.title }}</v-btn>
               </div>
@@ -19,19 +15,9 @@
     </v-container>
     <v-container grid-list-lg>
       <v-layout row wrap>
-        <v-flex
-          xs12
-          sm6
-          md4
-          v-for="ad of ads"
-          :key="ad.id"
-        >
+        <v-flex xs12 sm6 md4 v-for="ad of ads" :key="ad.id">
           <v-card>
-            <v-img
-              :src="ad.imageSrc"
-              height="200px"
-            >
-            </v-img>
+            <v-img :src="ad.imageSrc" height="200px"></v-img>
             <v-card-title primary-title>
               <div>
                 <h3 class="headline mb-0">{{ad.title}}</h3>
@@ -40,7 +26,8 @@
             </v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn flat :to="'/ad/' + ad.id">Open</v-btn>
+              <v-btn flat :to="'/ad/' + ad.id">Просмотреть</v-btn>
+              &ensp;
               <app-buy-modal :ad="ad"></app-buy-modal>
             </v-card-actions>
           </v-card>
@@ -52,12 +39,7 @@
     <v-container>
       <v-layout row>
         <v-flex xs12 class="text-xs-center pt-5">
-          <v-progress-circular
-            indeterminate
-            :size="100"
-            :width="4"
-            color="primary"
-          ></v-progress-circular>
+          <v-progress-circular indeterminate :size="100" :width="4" color="primary"></v-progress-circular>
         </v-flex>
       </v-layout>
     </v-container>
